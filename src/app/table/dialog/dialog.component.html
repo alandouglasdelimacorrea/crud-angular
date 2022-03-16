@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Adicionar a lista</h1>
+
+<div mat-dialog-content>
+ <mat-form-field appearance="fill">
+   <mat-label>Item</mat-label>
+   <input matInput [(ngModel)]="data.item">
+ </mat-form-field>
+ <mat-form-field appearance="fill">
+   <mat-label>Quantidade</mat-label>
+   <input matInput [(ngModel)]="data.qtd">
+ </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+ <button mat-button (click)="onNoClick()">Cancelar</button>
+ <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
+</div>
+

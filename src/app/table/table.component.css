@@ -1,0 +1,23 @@
+table{
+    width: 50%;
+    margin: 10px 5px 15px 350px;
+ }
+  
+ .botao-dialog{
+    width: 30%;
+    margin: 20px 5px 15px 470px;
+ }
+  
+ .mat-column-actions{
+      text-align: right;
+      font-weight: bold;
+ }
+  
+ .mat-column-qtd{
+    text-align: center;
+ }
+ 
+ .container{
+    margin: 10px 5px 15px 600px;
+
+ }
