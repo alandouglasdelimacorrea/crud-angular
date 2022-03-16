@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatTable } from '@angular/material/table';
  
@@ -15,7 +15,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
  selector: 'app-table',
  templateUrl: './table.component.html',
- styleUrls: ['./table.component.css']
+ styleUrls: ['./table.component.css'],
+ preserveWhitespaces: true
 })
 export class TableComponent implements OnInit {
  
@@ -34,17 +35,7 @@ export class TableComponent implements OnInit {
   this.table?.renderRows();
  }
 
-//  onEdit(): void {
-//   const dialogRef = this.dialog.open(DialogComponent, {
-//     width: '250px',
-//     data: {qtd: this.qtd, item: this.item},
-//   });
-
-//   dialogRef.afterClosed().subscribe(result => {
-//     this.dataSource.push(result)
-//     this.table?.renderRows();
-//     console.log(this.dataSource)
-//   });
+ 
 
  onEdit(index: number, elemento: PeriodicElement): void{
    const dialogRef = this.dialog.open(DialogComponent, {
@@ -82,4 +73,3 @@ export class TableComponent implements OnInit {
  }
  
 }
-
