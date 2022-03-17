@@ -1,6 +1,6 @@
 table{
     width: 50%;
-    margin: 10px 5px 15px 350px;
+    margin: 10px auto;
  }
   
  .botao-dialog{
@@ -26,5 +26,5 @@ table{
  }
 
  .botao-prosseguir{
-    margin: 20px 5px 15px 930px;
+    margin: 20px 5px 15px 925px;
  }

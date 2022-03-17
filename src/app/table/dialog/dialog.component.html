@@ -1,20 +1,18 @@
 <h1 mat-dialog-title>Adicionar a lista</h1>
 
-<form #f="ngForm">
-    <div mat-dialog-content>
-        <mat-form-field appearance="fill">
-        <mat-label>Item</mat-label>
-            <input matInput [(ngModel)]="data.item" class="form-control" required>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Quantidade</mat-label>
-            <input matInput [(ngModel)]="data.qtd" class="form-control" required>
-        </mat-form-field>
-    </div>
+<div mat-dialog-content>
+    <mat-form-field appearance="fill">
+    <mat-label>Item</mat-label>
+        <input matInput [(ngModel)]="data.item" name="item" cdkFocusInitial required> 
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Quantidade</mat-label>
+        <input matInput [(ngModel)]="data.qtd" required>
+    </mat-form-field>
+</div>
 
-    <div mat-dialog-actions>
-        <button mat-button (click)="onNoClick()">Cancelar</button>
-        <button mat-button [mat-dialog-close]="data" cdkFocusInitial [disabled]="valid == true">Salvar</button>
-    </div>
-</form>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button *ngIf="validate(data.item, data.qtd)" [mat-dialog-close]="data" >Salvar</button>
+</div>
 

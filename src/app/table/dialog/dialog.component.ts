@@ -1,3 +1,4 @@
+import { _isNumberValue } from '@angular/cdk/coercion';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
  
@@ -19,23 +20,32 @@ export class DialogComponent implements OnInit {
    @Inject(MAT_DIALOG_DATA) public data: DialogData,
  ) { }
 
-  valid: boolean = false;
+  // valid: boolean = false;
  
-  validate(data: DialogData){
-    if(typeof data.qtd === 'number' && data.qtd > 0){
-      if(data.item.length > 0){
-        this.valid = true;
-      }
+  // validate(data: DialogData){
+  //   if(typeof data.qtd === 'number' && data.qtd > 0){
+  //     if(data.item.length > 0){
+  //       this.valid = true;
+  //     }
+  //   }
+  //   this.valid =false;
+  // }
+
+  validate(item: any, qtd: any){
+    if(!isNaN(qtd) && qtd !== null && qtd !== ''
+        && item !== null && item !== ''){
+      return true;
     }
-    this.valid =false;
+    return false;
   }
 
- onNoClick(): void {
-   this.dialogRef.close();
- }
- 
- ngOnInit(): void {
- }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  
+  ngOnInit(): void {
+  }
  
 }
  

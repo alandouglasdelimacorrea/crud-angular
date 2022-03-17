@@ -25,6 +25,7 @@ export class TableComponent implements OnInit {
  
  item: string = '';
  qtd: any = ''; 
+ validação: boolean = false;
  
  displayedColumns: string[] = ['item', 'qtd', 'actions'];
  dataSource = ELEMENT_DATA;
@@ -35,20 +36,20 @@ export class TableComponent implements OnInit {
   this.table?.renderRows();
  }
 
- 
-
- onEdit(index: number, elemento: PeriodicElement): void{
+ onEdit(index: number, element: PeriodicElement): void{
    const dialogRef = this.dialog.open(DialogComponent, {
     width: '255px',
-    data: elemento === null ? {qtd: null, item: ''} :
+    data: element === null ? {qtd: null, item: ''} :
     {qtd: this.qtd, item: this.item},
    });
 
    dialogRef.afterClosed().subscribe(result => {
-     if(result !== undefined){
+    if(result.qtd !== null && result.item !== null){
+      if(result.qtd !== '' && result.item !== ''){
       this.dataSource.splice(index, 1, result)
-      this.table?.renderRows();
-     }
+      this.table?.renderRows();      
+      }
+    }
    })
 
  }
@@ -56,16 +57,22 @@ export class TableComponent implements OnInit {
  openDialog(element: PeriodicElement | null): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '255px',
-      data: element === null ? {qtd: null, item: ''} :
+      data: element === null ? {qtd: null, item: null} :
       {qtd: this.qtd, item: this.item},
     });
  
    dialogRef.afterClosed().subscribe(result => {
-     if(result !== undefined){
-       this.dataSource.push(result)
-       this.table?.renderRows();
-       console.log(this.dataSource)     
-     }
+
+    if(result.qtd !== null && result.item !== null){
+      if(result.qtd !== '' && result.item !== ''){
+        console.log('fechou')
+        this.dataSource.push(result)
+        this.table?.renderRows();
+        console.log(result)     
+      }
+    }
+    console.log(result)
+
    });
   }
  
