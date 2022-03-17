@@ -20,17 +20,6 @@ export class DialogComponent implements OnInit {
    @Inject(MAT_DIALOG_DATA) public data: DialogData,
  ) { }
 
-  // valid: boolean = false;
- 
-  // validate(data: DialogData){
-  //   if(typeof data.qtd === 'number' && data.qtd > 0){
-  //     if(data.item.length > 0){
-  //       this.valid = true;
-  //     }
-  //   }
-  //   this.valid =false;
-  // }
-
   validate(item: any, qtd: any){
     if(!isNaN(qtd) && qtd !== null && qtd !== ''
         && item !== null && item !== ''){

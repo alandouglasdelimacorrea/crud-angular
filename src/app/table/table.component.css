@@ -28,3 +28,17 @@ table{
  .botao-prosseguir{
     margin: 20px 5px 15px 925px;
  }
+
+ .mat-row .mat-cell {
+   border-bottom: 1px solid transparent;
+   border-top: 1px solid transparent;
+   cursor: pointer;
+ }
+ 
+ .mat-row:hover .mat-cell {
+   border-color: currentColor;
+ }
+
+ .demo-row-is-clicked {
+   font-weight: bold;
+ }

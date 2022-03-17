@@ -29,6 +29,7 @@ export class TableComponent implements OnInit {
  
  displayedColumns: string[] = ['item', 'qtd', 'actions'];
  dataSource = ELEMENT_DATA;
+ clickedRows = new Set<PeriodicElement>();
  constructor(public dialog: MatDialog) { }
 
  onDelete(index: number): void {
@@ -67,11 +68,9 @@ export class TableComponent implements OnInit {
       if(result.qtd !== '' && result.item !== ''){
         console.log('fechou')
         this.dataSource.push(result)
-        this.table?.renderRows();
-        console.log(result)     
+        this.table?.renderRows();    
       }
     }
-    console.log(result)
 
    });
   }
