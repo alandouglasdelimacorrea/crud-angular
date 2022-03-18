@@ -16,6 +16,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { TableCheckComponent } from './table-check/table-check.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
  
 @NgModule({
  declarations: [
@@ -35,7 +37,8 @@ import { TableCheckComponent } from './table-check/table-check.component';
    FormsModule,
    MatButtonModule,
    MatInputModule,
-   MatFormFieldModule
+   MatFormFieldModule,
+   MatCheckboxModule
  ],
  providers: [],
  bootstrap: [AppComponent]

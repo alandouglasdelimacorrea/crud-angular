@@ -1,44 +1,44 @@
 table{
-    width: 50%;
-    margin: 10px auto;
- }
+   width: 50%;
+   margin: 10px auto;
+}
   
- .botao-dialog{
-    width: 30%;
-    margin: 20px 5px 15px 470px;
- }
+.botao-dialog{
+   width: 30%;
+   margin: 20px 5px 15px 470px;
+}
   
- .mat-column-actions{
-      text-align: right;
-      font-weight: bold;
- }
+.mat-column-actions{
+   text-align: right;
+   font-weight: bold;
+}
   
- .mat-column-qtd{
-    text-align: center;
- }
+.mat-column-qtd{
+   text-align: center;
+}
  
- .container{
-    margin: 10px 5px 15px 600px;
+.container{
+   margin: 10px 5px 15px 600px;
+}
 
- }
 .btn{
-    margin: 0 5px
- }
+   margin: 0 5px
+}
 
- .botao-prosseguir{
-    margin: 20px 5px 15px 925px;
- }
+.botao-prosseguir{
+   margin: 20px 5px 15px 925px;
+}
 
- .mat-row .mat-cell {
+.mat-row .mat-cell {
    border-bottom: 1px solid transparent;
    border-top: 1px solid transparent;
    cursor: pointer;
- }
+}
  
- .mat-row:hover .mat-cell {
+.mat-row:hover .mat-cell {
    border-color: currentColor;
- }
+}
 
- .demo-row-is-clicked {
+.demo-row-is-clicked {
    font-weight: bold;
- }
+}

@@ -2,15 +2,12 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatTable } from '@angular/material/table';
+import { TableService } from '../shared/table.service';
  
 export interface PeriodicElement {
  item: string;
  qtd: number;
 }
- 
-const ELEMENT_DATA: PeriodicElement[] = [
- 
-];
  
 @Component({
  selector: 'app-table',
@@ -28,9 +25,9 @@ export class TableComponent implements OnInit {
  validação: boolean = false;
  
  displayedColumns: string[] = ['item', 'qtd', 'actions'];
- dataSource = ELEMENT_DATA;
+ dataSource = this.tableData.ELEMENT_DATA
  clickedRows = new Set<PeriodicElement>();
- constructor(public dialog: MatDialog) { }
+ constructor(public dialog: MatDialog, public tableData: TableService) { }
 
  onDelete(index: number): void {
   this.dataSource.splice(index, 1);
@@ -71,7 +68,6 @@ export class TableComponent implements OnInit {
         this.table?.renderRows();    
       }
     }
-
    });
   }
  
