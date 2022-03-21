@@ -1,5 +1,5 @@
 table{
-    width: 60%;
+    width: 70%;
     margin: 10px auto;
 }
 
@@ -15,8 +15,23 @@ table{
 .mat-column-item{
     text-align: center;
 }
+.mat-column-total{
+    text-align: center;
+}
 
 .campo-preco {
     padding: 5px 0 0 0;
 }
 
+.mat-tab-group {
+    margin: 1px auto;
+}
+
+.mat-row:hover .mat-cell {
+    border-color: currentColor;
+}
+ 
+
+mat-card{
+    margin: 4px auto;
+}

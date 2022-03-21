@@ -2,8 +2,8 @@
 
 <div mat-dialog-content>
     <mat-form-field appearance="fill">
-    <mat-label>Item</mat-label>
-        <input matInput [(ngModel)]="data.item" name="item" cdkFocusInitial required> 
+        <mat-label>Item</mat-label>
+        <input matInput [(ngModel)]="data.item" name="item" cdkFocusInitial required>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Quantidade</mat-label>
@@ -13,6 +13,5 @@
 
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancelar</button>
-    <button mat-button *ngIf="validate(data.item, data.qtd)" [mat-dialog-close]="data" >Salvar</button>
+    <button mat-button *ngIf="validate(data.item, data.qtd)" [mat-dialog-close]="data">Salvar</button>
 </div>
-

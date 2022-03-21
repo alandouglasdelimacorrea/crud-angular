@@ -1,21 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
-import {SelectionModel} from '@angular/cdk/collections';
 import { TableService } from '../shared/table.service';
+import { PeriodicElement } from '../app.component';
 
-export interface PeriodicElement {
-  select: boolean;
-  item: string;
-  qtd: number;
-  valor: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {select: false, item: 'qualquercoisa', qtd: 7, valor: 5},
-  {select: false, item: 'qualquercoisa', qtd: 7, valor: 5}
-];
-
-@Component({ 
+@Component({
   selector: 'app-table-check',
   templateUrl: './table-check.component.html',
   styleUrls: ['./table-check.component.css'],
@@ -23,25 +10,43 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TableCheckComponent implements OnInit {
 
-  displayedColumns: string[] = ['select','item', 'qtd', 'valor'];
-  dataSource = this.dataTable.ELEMENT_DATA
-  selection = new SelectionModel<PeriodicElement>(true, []);
- 
-  // isAllSelected() {
-  //   const numSelected = this.selection.selected.length;
-  //   const numRows = this.dataSource.length;
-  //   return numSelected === numRows;
-  // }
+  quantidade!: any;
+  totalGeral!: number;
+  elemento!: any;
+  marcados!: boolean;
+  totalMarcados!: number;
 
-  // /** The label for the checkbox on the passed row */
-  // checkboxLabel(row?: PeriodicElement): string {
-  //   if (!row) {
-  //     return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
-  //   }
-  //   return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.item + 1}`;
-  // }
+  clickedRows = new Set<PeriodicElement>();
+
+  displayedColumns: string[] = ['select', 'item', 'qtd', 'valor', 'total']
 
   constructor(public dataTable: TableService) { }
+
+  dataSource = this.dataTable.ELEMENT_DATA
+
+  calcularTotal() {
+    this.totalGeral = 0;
+    for (let index = 0; index < this.dataSource.length; index++) {
+      this.elemento = this.dataSource[index];
+      this.elemento.totalProduto = this.elemento.qtd * this.elemento.preco || 0;
+      this.totalGeral += this.elemento.totalProduto;
+    }
+    return this.totalGeral;
+  }
+
+  checkbox() {
+    let marcados = 0;
+    this.totalMarcados = 0;
+
+    for (let i = 0; i < this.dataSource.length; i++) {
+      this.elemento = this.dataSource[i]
+      if (this.elemento.select) {
+        this.totalMarcados += (this.elemento.qtd * this.elemento.preco);
+        marcados++;
+      }
+    }
+    return marcados;
+  }
 
   ngOnInit(): void {
   }
