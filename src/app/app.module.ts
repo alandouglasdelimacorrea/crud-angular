@@ -19,7 +19,6 @@ import { MatInputModule } from '@angular/material/input';
 import { TableCheckComponent } from './table-check/table-check.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
  
 @NgModule({
@@ -42,7 +41,6 @@ import { MatTabsModule } from '@angular/material/tabs';
    MatInputModule,
    MatFormFieldModule,
    MatCheckboxModule,
-   MatProgressBarModule,
    MatCardModule,
    MatTabsModule,
    BrowserAnimationsModule

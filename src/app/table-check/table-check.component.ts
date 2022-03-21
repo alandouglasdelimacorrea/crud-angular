@@ -41,7 +41,7 @@ export class TableCheckComponent implements OnInit {
     for (let i = 0; i < this.dataSource.length; i++) {
       this.elemento = this.dataSource[i]
       if (this.elemento.select) {
-        this.totalMarcados += (this.elemento.qtd * this.elemento.preco);
+        this.totalMarcados += (this.elemento.qtd * this.elemento.preco || 0) 
         marcados++;
       }
     }
